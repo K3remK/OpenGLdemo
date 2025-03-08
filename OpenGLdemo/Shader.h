@@ -8,6 +8,10 @@
 #include <sstream>
 #include <iostream>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 class Shader
 {
 public:
@@ -87,6 +91,30 @@ public:
 	void setFloat(const std::string& name, float value) const
 	{
 		glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+	}
+	void setVec2(const std::string& name, const glm::vec2& val) const
+	{
+		glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(val));
+	}
+	void setVec3(const std::string& name, const glm::vec3& val) const
+	{
+		glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(val));
+	}
+	void setVec4(const std::string& name, const glm::vec4& val) const
+	{
+		glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, glm::value_ptr(val));
+	}
+	void setMat2(const std::string& name, const glm::mat2& val) const
+	{
+		glUniformMatrix2fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
+	}
+	void setMat3(const std::string& name, const glm::mat3& val) const
+	{
+		glUniformMatrix3fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
+	}
+	void setMat4(const std::string& name, const glm::mat4& val) const
+	{
+		glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(val));
 	}
 private:
 	void checkCompileErrors(unsigned int shader, std::string type)

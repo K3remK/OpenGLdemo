@@ -46,5 +46,17 @@
     <None Include="triangle_frag.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="lighting_vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="lighting_frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="text_vert.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="text_frag.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
